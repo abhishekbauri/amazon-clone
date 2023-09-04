@@ -1,1 +1,1 @@
-Amazon Clone Frontend Code in this Folder
+Amazon Clone Frontend Code will be in this Folder
