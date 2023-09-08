@@ -46,6 +46,9 @@ public class Product {
     @Column(name = "url")
     private String url;
 
+    @Column(name = "returnable")
+    private String returnable;
+
     @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL, targetEntity = Category.class)
     @JoinColumn(name = "id",referencedColumnName = "id",nullable = true)
     private Category category;
