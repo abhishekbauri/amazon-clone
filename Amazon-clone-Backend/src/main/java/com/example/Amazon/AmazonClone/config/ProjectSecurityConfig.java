@@ -29,6 +29,7 @@ public class ProjectSecurityConfig {
                 requestMatchers("/AmazonClone/api/person/getPersonByEmail").authenticated().
                 requestMatchers("/AmazonClone/api/product/saveProduct").authenticated().
                 requestMatchers("/AmazonClone/api/product/getAllProducts").permitAll().
+                requestMatchers("/AmazonClone/api/product//category/{category}").permitAll().
                 requestMatchers("/AmazonClone/v3/api-docs").permitAll().
 //                requestMatchers("/AmazonClone/api/games/saveNewGame").permitAll().
                 requestMatchers("/AmazonClone/api/games/getAllGames").permitAll().

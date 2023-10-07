@@ -1,6 +1,7 @@
 package com.example.Amazon.AmazonClone.Controllers;
 
-import com.example.Amazon.AmazonClone.Model.Games;
+import com.example.Amazon.AmazonClone.Entity.GamesEntity;
+import com.example.Amazon.AmazonClone.Model.GamesDTO;
 import com.example.Amazon.AmazonClone.Services.GameService;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class GameController {
     private GameService gameService;
 
     @PostMapping(path = "/saveNewGame")
-    public ResponseEntity<Response> saveGame(@RequestBody Games game){
+    public ResponseEntity<Response> saveGame(@RequestBody GamesDTO game){
         boolean isSaved = gameService.saveGameDetails(game);
         Response response = new Response();
         if(isSaved) {
@@ -41,7 +42,7 @@ public class GameController {
     }
 
     @GetMapping(path = "/getAllGames")
-    public List<Games> getAllGames(){
+    public List<GamesDTO> getAllGames(){
         return gameService.getAllGamesDetails();
     }
 
@@ -52,7 +53,7 @@ public class GameController {
 
     // to be made after adding authentication in project
 //    @GetMapping(path = "/getAllGamesByEmail")
-//    public List<Games> getAllGamesByEmail(Authentication authentication){
+//    public List<GamesDTO> getAllGamesByEmail(Authentication authentication){
 //        return gameService.getAllGamesDetailsByEmail(authentication);
 //    }
 

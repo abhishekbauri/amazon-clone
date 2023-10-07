@@ -1,8 +1,8 @@
-package com.example.Amazon.AmazonClone.Model;
+package com.example.Amazon.AmazonClone.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -12,23 +12,20 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
-@NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "games")
-@Data
 @Entity
-public class Games {
+@NoArgsConstructor
+@Data
+@Table(name = "role")
+public class RoleEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
     @GenericGenerator(name = "native",strategy = "native")
-    private int gameId;
+    private int roleId;
 
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "status")
-    private String status;
+    @Column(name = "role_name")
+    private String roleName;
 
     @CreatedDate
     @Column(updatable = false)
@@ -45,15 +42,4 @@ public class Games {
     @LastModifiedBy
     @Column(insertable = false)
     private String updatedBy;
-
 }
-
-
-
-
-
-
-
-
-
-

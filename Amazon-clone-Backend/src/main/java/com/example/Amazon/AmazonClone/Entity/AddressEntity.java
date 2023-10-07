@@ -1,8 +1,8 @@
-package com.example.Amazon.AmazonClone.Model;
+package com.example.Amazon.AmazonClone.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -14,21 +14,33 @@ import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "games")
-@Data
 @Entity
-public class Games {
+@Data
+@Table(name = "address")
+public class AddressEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
     @GenericGenerator(name = "native",strategy = "native")
-    private int gameId;
+    private int addressId;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "address1")
+    private String address1;
 
-    @Column(name = "status")
-    private String status;
+    @Column(name = "address2")
+    private String address2;
+
+    @Column(name = "pin_code")
+    private String pinCode;
+
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "state")
+    private String state;
+
+    @Column(name = "landmark")
+    private String landmark;
 
     @CreatedDate
     @Column(updatable = false)
@@ -45,15 +57,4 @@ public class Games {
     @LastModifiedBy
     @Column(insertable = false)
     private String updatedBy;
-
 }
-
-
-
-
-
-
-
-
-
-
