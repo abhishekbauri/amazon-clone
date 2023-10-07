@@ -1,5 +1,6 @@
-package com.example.Amazon.AmazonClone.Model;
+package com.example.Amazon.AmazonClone.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,23 +13,20 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
-@NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "games")
-@Data
 @Entity
-public class Games {
+@Data
+@NoArgsConstructor
+@Table(name = "category")
+public class CategoryEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
     @GenericGenerator(name = "native",strategy = "native")
-    private int gameId;
+    private int id;
 
     @Column(name = "name")
     private String name;
-
-    @Column(name = "status")
-    private String status;
 
     @CreatedDate
     @Column(updatable = false)
@@ -45,15 +43,4 @@ public class Games {
     @LastModifiedBy
     @Column(insertable = false)
     private String updatedBy;
-
 }
-
-
-
-
-
-
-
-
-
-

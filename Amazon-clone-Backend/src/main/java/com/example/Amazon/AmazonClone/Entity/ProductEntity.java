@@ -1,4 +1,4 @@
-package com.example.Amazon.AmazonClone.Model;
+package com.example.Amazon.AmazonClone.Entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -11,24 +11,20 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @EntityListeners(AuditingEntityListener.class)
 @Entity
 @Data
 @NoArgsConstructor
 @Table(name = "product")
-public class Product {
+public class ProductEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private int productId;
 
-    @Column(name = "title")
+    @Column(name = "title", length = 400)
     private String title;
 
     @Column(name = "brand")
@@ -37,21 +33,24 @@ public class Product {
     @Column(name = "model_name")
     private String modelName;
 
-    @Column(name = "description")
+    @Column(name = "description", length = 1000)
     private String description;
 
     @Column(name = "amount")
     private String amount;
 
-    @Column(name = "url")
+    @Column(name = "url", length = 600)
     private String url;
+
+    @Column(name = "rating")
+    private String rating;
 
     @Column(name = "returnable")
     private String returnable;
 
-    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL, targetEntity = Category.class)
+    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL, targetEntity = CategoryEntity.class)
     @JoinColumn(name = "id",referencedColumnName = "id",nullable = true)
-    private Category category;
+    private CategoryEntity categoryEntity;
 
     @CreatedDate
     @Column(updatable = false)
