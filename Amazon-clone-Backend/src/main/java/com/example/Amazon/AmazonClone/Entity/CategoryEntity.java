@@ -1,6 +1,5 @@
-package com.example.Amazon.AmazonClone.Entity;
+package com.example.Amazon.AmazonClone.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

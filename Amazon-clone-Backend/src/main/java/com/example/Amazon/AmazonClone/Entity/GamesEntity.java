@@ -1,4 +1,4 @@
-package com.example.Amazon.AmazonClone.Entity;
+package com.example.Amazon.AmazonClone.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

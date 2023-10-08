@@ -1,7 +1,7 @@
-package com.example.Amazon.AmazonClone.Controllers;
+package com.example.Amazon.AmazonClone.controllers;
 
-import com.example.Amazon.AmazonClone.Model.ProductDTO;
-import com.example.Amazon.AmazonClone.Services.ProductService;
+import com.example.Amazon.AmazonClone.model.ProductDTO;
+import com.example.Amazon.AmazonClone.services.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +38,27 @@ public class ProductController {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .header("notSaved", "true")
+                .body(response);
+    }
+
+    @PostMapping("/updateProduct")
+    public ResponseEntity<Response> updateProduct(@RequestBody ProductDTO productDTO){
+        boolean isSaved = productService.updateProductDetails(productDTO);
+
+        Response response = new Response();
+        if(isSaved) {
+            response.setStatus(200);
+            response.setMessage("Update was successfully !");
+            return ResponseEntity
+                    .status(HttpStatus.CREATED)
+                    .header("isProductUpdated", "true")
+                    .body(response);
+        }
+        response.setStatus(200);
+        response.setMessage("Product not found!");
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .header("notUpdated", "true")
                 .body(response);
     }
 

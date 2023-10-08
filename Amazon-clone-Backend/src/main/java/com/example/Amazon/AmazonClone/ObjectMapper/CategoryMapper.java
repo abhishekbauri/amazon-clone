@@ -1,7 +1,7 @@
-package com.example.Amazon.AmazonClone.ObjectMapper;
+package com.example.Amazon.AmazonClone.objectMapper;
 
-import com.example.Amazon.AmazonClone.Entity.CategoryEntity;
-import com.example.Amazon.AmazonClone.Model.CategoryDTO;
+import com.example.Amazon.AmazonClone.entity.CategoryEntity;
+import com.example.Amazon.AmazonClone.model.CategoryDTO;
 
 public class CategoryMapper {
 

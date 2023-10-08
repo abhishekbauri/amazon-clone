@@ -1,7 +1,7 @@
-package com.example.Amazon.AmazonClone.ObjectMapper;
+package com.example.Amazon.AmazonClone.objectMapper;
 
-import com.example.Amazon.AmazonClone.Entity.RoleEntity;
-import com.example.Amazon.AmazonClone.Model.RoleDTO;
+import com.example.Amazon.AmazonClone.entity.RoleEntity;
+import com.example.Amazon.AmazonClone.model.RoleDTO;
 
 public class RoleMapper {
 

@@ -1,8 +1,7 @@
-package com.example.Amazon.AmazonClone.Controllers;
+package com.example.Amazon.AmazonClone.controllers;
 
-import com.example.Amazon.AmazonClone.Entity.GamesEntity;
-import com.example.Amazon.AmazonClone.Model.GamesDTO;
-import com.example.Amazon.AmazonClone.Services.GameService;
+import com.example.Amazon.AmazonClone.model.GamesDTO;
+import com.example.Amazon.AmazonClone.services.GameService;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

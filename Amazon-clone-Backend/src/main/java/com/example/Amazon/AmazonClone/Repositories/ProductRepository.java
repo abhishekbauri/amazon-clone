@@ -1,6 +1,6 @@
-package com.example.Amazon.AmazonClone.Repositories;
+package com.example.Amazon.AmazonClone.repositories;
 
-import com.example.Amazon.AmazonClone.Entity.ProductEntity;
+import com.example.Amazon.AmazonClone.entity.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -12,6 +12,8 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<ProductEntity,Integer> {
 
     ProductEntity findByTitle(String title);
+
+    ProductEntity findByProductId(Integer id);
 
     // writing query based on named parameters
     @Query("select p from ProductEntity p where p.categoryEntity.name = :category")
