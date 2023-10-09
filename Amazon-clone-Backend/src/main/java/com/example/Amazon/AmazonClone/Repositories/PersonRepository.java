@@ -1,6 +1,6 @@
-package com.example.Amazon.AmazonClone.Repositories;
+package com.example.Amazon.AmazonClone.repositories;
 
-import com.example.Amazon.AmazonClone.Entity.PersonEntity;
+import com.example.Amazon.AmazonClone.entity.PersonEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

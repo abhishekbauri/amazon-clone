@@ -1,11 +1,10 @@
-package com.example.Amazon.AmazonClone.Services;
+package com.example.Amazon.AmazonClone.services;
 
 
-import com.example.Amazon.AmazonClone.Entity.PersonEntity;
-import com.example.Amazon.AmazonClone.Model.PersonDTO;
-import com.example.Amazon.AmazonClone.ObjectMapper.PersonMapper;
-import com.example.Amazon.AmazonClone.Repositories.PersonRepository;
-import org.springframework.beans.BeanUtils;
+import com.example.Amazon.AmazonClone.entity.PersonEntity;
+import com.example.Amazon.AmazonClone.model.PersonDTO;
+import com.example.Amazon.AmazonClone.objectMapper.PersonMapper;
+import com.example.Amazon.AmazonClone.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package com.example.Amazon.AmazonClone.Model;
+package com.example.Amazon.AmazonClone.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;

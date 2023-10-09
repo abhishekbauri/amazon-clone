@@ -1,9 +1,9 @@
-package com.example.Amazon.AmazonClone.Services;
+package com.example.Amazon.AmazonClone.services;
 
-import com.example.Amazon.AmazonClone.Entity.GamesEntity;
-import com.example.Amazon.AmazonClone.Model.GamesDTO;
-import com.example.Amazon.AmazonClone.ObjectMapper.GamesMapper;
-import com.example.Amazon.AmazonClone.Repositories.GameRepository;
+import com.example.Amazon.AmazonClone.entity.GamesEntity;
+import com.example.Amazon.AmazonClone.model.GamesDTO;
+import com.example.Amazon.AmazonClone.objectMapper.GamesMapper;
+import com.example.Amazon.AmazonClone.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

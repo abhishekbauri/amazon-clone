@@ -1,8 +1,7 @@
-package com.example.Amazon.AmazonClone.Controllers;
+package com.example.Amazon.AmazonClone.controllers;
 
-import com.example.Amazon.AmazonClone.Entity.PersonEntity;
-import com.example.Amazon.AmazonClone.Model.PersonDTO;
-import com.example.Amazon.AmazonClone.Services.PersonService;
+import com.example.Amazon.AmazonClone.model.PersonDTO;
+import com.example.Amazon.AmazonClone.services.PersonService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
