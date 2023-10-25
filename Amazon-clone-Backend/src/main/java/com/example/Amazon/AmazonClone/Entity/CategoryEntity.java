@@ -1,4 +1,4 @@
-package com.example.Amazon.AmazonClone.Model;
+package com.example.Amazon.AmazonClone.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @Table(name = "category")
-public class Category {
+public class CategoryEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native")

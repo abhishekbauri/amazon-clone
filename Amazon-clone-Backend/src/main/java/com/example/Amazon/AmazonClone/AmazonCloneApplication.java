@@ -6,10 +6,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@EnableJpaRepositories("com.example.Amazon.AmazonClone.Repositories")
-@EntityScan("com.example.Amazon.AmazonClone.Model")
+@EnableJpaRepositories("com.example.Amazon.AmazonClone.repositories")
+@EntityScan("com.example.Amazon.AmazonClone.entity")
 @EnableJpaAuditing(auditorAwareRef = "auditAwareImpl")
-
 @SpringBootApplication
 public class AmazonCloneApplication {
 

@@ -38,6 +38,10 @@ public class Person {
     @JoinColumn(name = "address_id",referencedColumnName = "addressId",nullable = true)
     private Address address;
 
+    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL, targetEntity = Games.class)
+    @JoinColumn(name = "game_id",referencedColumnName = "gameId",nullable = true)
+    private Games games;
+
     @CreatedDate
     @Column(updatable = false)
     private LocalDateTime createdAt;

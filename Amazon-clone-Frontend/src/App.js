@@ -1,3 +1,4 @@
+
 import Navbar from "./components/navbar/Navbar.jsx";
 import { Routes, Route } from "react-router-dom";
 import SignIn from "./section/signin/SignIn";
@@ -20,3 +21,4 @@ function App() {
 }
 
 export default App;
+

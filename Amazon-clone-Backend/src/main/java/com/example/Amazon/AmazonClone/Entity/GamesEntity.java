@@ -1,4 +1,4 @@
-package com.example.Amazon.AmazonClone.Model;
+package com.example.Amazon.AmazonClone.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -12,20 +12,23 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
-@EntityListeners(AuditingEntityListener.class)
-@Entity
-@Data
 @NoArgsConstructor
-@Table(name = "category")
-public class Category {
+@EntityListeners(AuditingEntityListener.class)
+@Table(name = "games")
+@Data
+@Entity
+public class GamesEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
     @GenericGenerator(name = "native",strategy = "native")
-    private int id;
+    private int gameId;
 
     @Column(name = "name")
     private String name;
+
+    @Column(name = "status")
+    private String status;
 
     @CreatedDate
     @Column(updatable = false)
@@ -42,4 +45,15 @@ public class Category {
     @LastModifiedBy
     @Column(insertable = false)
     private String updatedBy;
+
 }
+
+
+
+
+
+
+
+
+
+

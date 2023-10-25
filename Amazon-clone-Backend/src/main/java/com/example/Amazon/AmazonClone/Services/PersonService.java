@@ -1,15 +1,15 @@
-package com.example.Amazon.AmazonClone.Services;
+package com.example.Amazon.AmazonClone.services;
 
 
-import com.example.Amazon.AmazonClone.Model.Person;
-import com.example.Amazon.AmazonClone.Repositories.PersonRepository;
+import com.example.Amazon.AmazonClone.entity.PersonEntity;
+import com.example.Amazon.AmazonClone.model.PersonDTO;
+import com.example.Amazon.AmazonClone.objectMapper.PersonMapper;
+import com.example.Amazon.AmazonClone.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -19,31 +19,58 @@ public class PersonService {
     private PersonRepository personRepository;
 
     @Transactional
-    public boolean savePersonDetails(Person p){
-        Person obj = personRepository.findByEmailId(p.getEmailId());
+    public boolean savePersonDetails(PersonDTO p){
+        PersonEntity obj = personRepository.findByEmailId(p.getEmailId());
         if(obj != null && obj.getPersonId() > 0) return (false);
-        personRepository.save(p);
+
+        PersonEntity personEntity = PersonMapper.dtoToEntity(p);
+//        BeanUtils.copyProperties(p, personEntity);
+        personRepository.save(personEntity);
         return (true);
     }
 
-    public boolean updatePersonDetails(Person p) {
-        Person obj = personRepository.findByEmailId(p.getEmailId());
+    public boolean updatePersonDetails(PersonDTO p) {
+        PersonEntity obj = personRepository.findByEmailId(p.getEmailId());
+
+        PersonEntity personEntity = PersonMapper.dtoToEntity(p);;
+//        BeanUtils.copyProperties(p, personEntity);
+
         if(obj != null && obj.getPersonId() > 0){
-            if(p.getUsername() != null) obj.setUsername(p.getUsername());
-            if(p.getPassword() != null) obj.setPassword(p.getPassword());
-            if(p.getRole() != null) obj.setRole(p.getRole());
-            if(p.getAddress() != null) obj.setAddress(p.getAddress());
+            if(personEntity.getUsername() != null) obj.setUsername(personEntity.getUsername());
+            if(personEntity.getPassword() != null) obj.setPassword(personEntity.getPassword());
+            if(personEntity.getRoleEntity() != null) obj.setRoleEntity(personEntity.getRoleEntity());
+            if(personEntity.getAddressEntity() != null) obj.setAddressEntity(personEntity.getAddressEntity());
             personRepository.save(obj);
             return (true);
         }
         return (false);
     }
 
-    public Person getPersonDetailsByEmail(String email){
-        return personRepository.findByEmailId(email);
+    public PersonDTO getPersonDetailsByEmail(String email){
+        PersonEntity personEntity = personRepository.findByEmailId(email);
+
+        PersonDTO personDTO = PersonMapper.entityToDto(personEntity);
+//        BeanUtils.copyProperties(personEntity, personDTO);
+        return (personDTO);
     }
 
-    public List<Person> getAllPersonDetails(){
-        return personRepository.findAll();
+    public List<PersonDTO> getAllPersonDetails(){
+        List<PersonEntity> personEntities = personRepository.findAll();
+        System.out.println("Person Entities : ");
+
+        List<PersonDTO> personDTOS = new ArrayList<>();
+        personEntities.forEach(personEntity -> {
+            System.out.print(personEntity+", ");
+            PersonDTO personDTO = PersonMapper.entityToDto(personEntity);
+//            BeanUtils.copyProperties(personEntity, personDTO);
+            personDTOS.add(personDTO);
+
+        });
+        System.out.println();
+        System.out.println("Person DTOs : " + personDTOS);
+
+        return (personDTOS);
     }
+
+
 }

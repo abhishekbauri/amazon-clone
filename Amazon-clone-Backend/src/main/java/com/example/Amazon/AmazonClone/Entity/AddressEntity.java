@@ -1,8 +1,7 @@
-package com.example.Amazon.AmazonClone.Model;
+package com.example.Amazon.AmazonClone.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -12,20 +11,35 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
+@NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 @Entity
 @Data
-@NoArgsConstructor
-@Table(name = "category")
-public class Category {
+@Table(name = "address")
+public class AddressEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
     @GenericGenerator(name = "native",strategy = "native")
-    private int id;
+    private int addressId;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "address1")
+    private String address1;
+
+    @Column(name = "address2")
+    private String address2;
+
+    @Column(name = "pin_code")
+    private String pinCode;
+
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "state")
+    private String state;
+
+    @Column(name = "landmark")
+    private String landmark;
 
     @CreatedDate
     @Column(updatable = false)

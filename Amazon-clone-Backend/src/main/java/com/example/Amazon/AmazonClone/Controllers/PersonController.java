@@ -1,8 +1,7 @@
-package com.example.Amazon.AmazonClone.Controllers;
+package com.example.Amazon.AmazonClone.controllers;
 
-import com.example.Amazon.AmazonClone.Model.Person;
-import com.example.Amazon.AmazonClone.Services.PersonService;
-import jakarta.websocket.server.PathParam;
+import com.example.Amazon.AmazonClone.model.PersonDTO;
+import com.example.Amazon.AmazonClone.services.PersonService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +21,12 @@ public class PersonController {
     public PersonService personService;
 
     @PostMapping("/savePerson")
-    public ResponseEntity<Response> savePerson(@RequestBody Person p){
+    public ResponseEntity<Response> savePerson(@RequestBody PersonDTO p){
         boolean isSaved = personService.savePersonDetails(p);
         Response response = new Response();
         if(isSaved) {
             response.setStatus(200);
-            response.setMessage("Person saved successfully");
+            response.setMessage("PersonDTO saved successfully");
             return ResponseEntity
                     .status(HttpStatus.CREATED)
                     .header("isPersonSaved", "true")
@@ -42,7 +41,7 @@ public class PersonController {
     }
 
     @PostMapping("/updatePerson")
-    public ResponseEntity<Response> updatePersonByUsername(@RequestBody Person p){
+    public ResponseEntity<Response> updatePersonByUsername(@RequestBody PersonDTO p){
         boolean isUpdated = personService.updatePersonDetails(p);
         Response response = new Response();
         if(isUpdated) {
@@ -62,13 +61,13 @@ public class PersonController {
     }
 
     @GetMapping("getPersonByEmail")
-    public Person getPersonByEmail(@RequestHeader(name = "email") String email){
+    public PersonDTO getPersonByEmail(@RequestHeader(name = "email") String email){
         return personService.getPersonDetailsByEmail(email);
     }
 
     @GetMapping("/getAllPersons")
-    public List<Person> getAllPerson(){
-        List<Person> res = personService.getAllPersonDetails();
+    public List<PersonDTO> getAllPerson(){
+        List<PersonDTO> res = personService.getAllPersonDetails();
         return (res);
     }
 }
